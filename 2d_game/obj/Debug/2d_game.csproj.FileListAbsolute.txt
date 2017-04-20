@@ -1,0 +1,9 @@
+c:\users\yoav\documents\visual studio 2015\Projects\2d_game\2d_game\bin\Debug\2d_game.exe.config
+c:\users\yoav\documents\visual studio 2015\Projects\2d_game\2d_game\bin\Debug\2d_game.exe
+c:\users\yoav\documents\visual studio 2015\Projects\2d_game\2d_game\bin\Debug\2d_game.pdb
+c:\users\yoav\documents\visual studio 2015\Projects\2d_game\2d_game\obj\Debug\2d_game.csprojResolveAssemblyReference.cache
+c:\users\yoav\documents\visual studio 2015\Projects\2d_game\2d_game\obj\Debug\_2d_game.Properties.Resources.resources
+c:\users\yoav\documents\visual studio 2015\Projects\2d_game\2d_game\obj\Debug\2d_game.csproj.GenerateResource.Cache
+c:\users\yoav\documents\visual studio 2015\Projects\2d_game\2d_game\obj\Debug\2d_game.exe
+c:\users\yoav\documents\visual studio 2015\Projects\2d_game\2d_game\obj\Debug\2d_game.pdb
+c:\users\yoav\documents\visual studio 2015\Projects\2d_game\2d_game\obj\Debug\_2d_game.game_window.resources
