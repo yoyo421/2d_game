@@ -9,7 +9,6 @@ namespace _2d_game
 {
     class player : obj
     {
-        public int items { get; set; }
         public int direction_movment { get; set; }
 
         public player()
@@ -18,21 +17,24 @@ namespace _2d_game
 
             this.X = -5;
             this.Y = -5;
-            this.size_X = 10;
-            this.size_Y = 10;
+            this.size_X = 20;
+            this.size_Y = 20;
 
+            this.direction_movment = - 1;
             this.speed = 5;
-            this.direction_movment = -1;
             this.is_alive = true;
             this.health = 100;
 
             PB.Size = new System.Drawing.Size(this.size_X, this.size_Y);
             PB.Location = new System.Drawing.Point(this.X, this.Y);
         }
-        public void got_item(int id)
+        public void change_X(int speed)
         {
-            if (id == 0 && this.speed > 1)
-                this.speed -= 1;
+            this.X += speed;
+        }
+        public void change_Y(int speed)
+        {
+            this.Y += speed;
         }
     }
 }

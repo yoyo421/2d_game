@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace _2d_game
 {
-    class detect_location : obj
+    class detect_location : grid__xy
     {
         public detect_location()
         {
             this.X = 0;
             this.Y = 0;
-            this.is_invincible = true;
+        }
+        public void fixing(int x, int y, int speed)
+        {
+            this.X = x;
+            this.Y = y;
         }
     }
 }

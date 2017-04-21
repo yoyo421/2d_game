@@ -7,12 +7,10 @@ using System.Windows.Forms;
 
 namespace _2d_game
 {
-    class obj
+    class obj : grid__xy
     {
         public PictureBox PB { get; protected set; }
 
-        public int X { get; set; }
-        public int Y { get; set; }
         public int size_X { get; protected set; }
         public int size_Y { get; protected set; }
 

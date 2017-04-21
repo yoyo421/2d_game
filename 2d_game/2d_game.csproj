@@ -57,6 +57,9 @@
     <Compile Include="game_window.Designer.cs">
       <DependentUpon>game_window.cs</DependentUpon>
     </Compile>
+    <Compile Include="grid _xy.cs" />
+    <Compile Include="map.cs" />
+    <Compile Include="map1.cs" />
     <Compile Include="math.cs" />
     <Compile Include="obj.cs" />
     <Compile Include="player.cs" />
