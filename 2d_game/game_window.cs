@@ -36,6 +36,7 @@ namespace _2d_game
             {
                 for (int ii = 0; ii < map_load.map_constractor[i].Length; ii++)
                     this.Controls.Add(map_load.map_constractor[i][ii].PB);
+                new_player.PB.SendToBack();
             }
 
             new_player.PB.BackColor = Color.Red;

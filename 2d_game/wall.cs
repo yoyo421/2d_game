@@ -45,7 +45,7 @@ namespace _2d_game
             tample[0].is_solid = solid;
             return tample;
         }
-        public wall[] plus_big_structure(int x, int y)
+        public wall[] plus_big_structure(int x, int y, bool solid)
         {
             wall[] tample = new wall[4];
             int i = 0;
@@ -57,6 +57,7 @@ namespace _2d_game
             tample[i].size_Y = 20;
             tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
             tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            tample[i].is_solid = solid;
             i++;
             tample[i] = new wall();
             tample[i].X = x + 150;
@@ -65,6 +66,7 @@ namespace _2d_game
             tample[i].size_Y = 100;
             tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
             tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            tample[i].is_solid = solid;
             i++;
             tample[i] = new wall();
             tample[i].X = x + 220;
@@ -73,6 +75,7 @@ namespace _2d_game
             tample[i].size_Y = 20;
             tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
             tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            tample[i].is_solid = solid;
             i++;
             tample[i] = new wall();
             tample[i].X = x + 150;
@@ -81,9 +84,10 @@ namespace _2d_game
             tample[i].size_Y = 100;
             tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
             tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            tample[i].is_solid = solid;
             return tample;
         }
-        public wall[] cube_hollow_X_entrence_big_structure(int x, int y)
+        public wall[] cube_hollow_X_entrence_big_structure(int x, int y, bool solid)
         {
             wall[] tample = new wall[4];
             int i = 0;
@@ -95,6 +99,7 @@ namespace _2d_game
             tample[i].size_Y = 20;
             tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
             tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            tample[i].is_solid = solid;
             i++;
             tample[i] = new wall();
             tample[i].X = x + 200;
@@ -103,6 +108,7 @@ namespace _2d_game
             tample[i].size_Y = 100;
             tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
             tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            tample[i].is_solid = solid;
             i++;
             tample[i] = new wall();
             tample[i].X = x;
@@ -111,12 +117,60 @@ namespace _2d_game
             tample[i].size_Y = 100;
             tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
             tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            tample[i].is_solid = solid;
             i++;
             tample[i] = new wall();
             tample[i].X = x + 60;
             tample[i].Y = y + 200;
             tample[i].size_X = 100;
             tample[i].size_Y = 20;
+            tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
+            tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            tample[i].is_solid = solid;
+            return tample;
+        }
+        public wall[] five_cubes_X_big_structure(int x, int y, bool solid)
+        {
+            wall[] tample = new wall[5];
+            int i = 0;
+
+            tample[i] = new wall();
+            tample[i].X = x;
+            tample[i].Y = y;
+            tample[i].size_X = 50;
+            tample[i].size_Y = 50;
+            tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
+            tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            i++;
+            tample[i] = new wall();
+            tample[i].X = x + 150;
+            tample[i].Y = y;
+            tample[i].size_X = 50;
+            tample[i].size_Y = 50;
+            tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
+            tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            i++;
+            tample[i] = new wall();
+            tample[i].X = x + 75;
+            tample[i].Y = y + 75;
+            tample[i].size_X = 50;
+            tample[i].size_Y = 50;
+            tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
+            tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            i++;
+            tample[i] = new wall();
+            tample[i].X = x;
+            tample[i].Y = y + 150;
+            tample[i].size_X = 50;
+            tample[i].size_Y = 50;
+            tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
+            tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            i++;
+            tample[i] = new wall();
+            tample[i].X = x + 150;
+            tample[i].Y = y + 150;
+            tample[i].size_X = 50;
+            tample[i].size_Y = 50;
             tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
             tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
             return tample;

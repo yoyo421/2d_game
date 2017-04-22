@@ -18,7 +18,7 @@ namespace _2d_game
             //
             count++;
             //
-            map_constractor[count] = new wall().custom_wall(-100,-50,90,30,true);
+            map_constractor[count] = new wall().custom_wall(-100,-50,90,30, true);
             //
             count++;
             //
@@ -26,19 +26,23 @@ namespace _2d_game
             //
             count++;
             //
-            map_constractor[count] = new wall().plus_big_structure(-150,300);
+            map_constractor[count] = new wall().plus_big_structure(-150,300, true);
             //
             count++;
             //
-            map_constractor[count] = new wall().cube_hollow_X_entrence_big_structure(0, -300);
+            map_constractor[count] = new wall().cube_hollow_X_entrence_big_structure(0, -300, true);
             //
             count++;
             //
-            map_constractor[count] = new wall().plus_big_structure(500, 500);
+            map_constractor[count] = new wall().plus_big_structure(500, 500, true);
             //
             count++;
             //
-            map_constractor[count] = new wall().cube_hollow_X_entrence_big_structure(550, 550);
+            map_constractor[count] = new wall().cube_hollow_X_entrence_big_structure(550, 550, true);
+            //
+            count++;
+            //
+            map_constractor[count] = new wall().five_cubes_X_big_structure(-300, 100, true);
         }
         public map1(int map)
         {
