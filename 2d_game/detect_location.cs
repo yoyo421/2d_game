@@ -13,7 +13,7 @@ namespace _2d_game
             this.X = 0;
             this.Y = 0;
         }
-        public void fixing(int x, int y, int speed)
+        public void fixing(int x, int y)
         {
             this.X = x;
             this.Y = y;

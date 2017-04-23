@@ -20,13 +20,14 @@ namespace _2d_game
             this.size_X = 20;
             this.size_Y = 20;
 
-            this.direction_movment = - 1;
+            this.direction_movment = 1;
             this.speed = 5;
             this.is_alive = true;
             this.health = 100;
 
             PB.Size = new System.Drawing.Size(this.size_X, this.size_Y);
             PB.Location = new System.Drawing.Point(this.X, this.Y);
+            PB.BackColor = Color.Red;
         }
         public void change_X(int speed)
         {
@@ -35,6 +36,15 @@ namespace _2d_game
         public void change_Y(int speed)
         {
             this.Y += speed;
+        }
+        public void set_xy(int x, int y)
+        {
+            this.Y = y;
+            this.X = x;
+        }
+        public player set_player(player pl)
+        {
+            return pl;
         }
     }
 }

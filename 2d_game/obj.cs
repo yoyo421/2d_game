@@ -18,6 +18,7 @@ namespace _2d_game
         public bool is_alive { get; protected set; }
         public bool is_invincible { get; protected set; }
         public bool is_invisible { get; protected set; }
+        public bool is_backround { get; protected set; }
         public int health { get; protected set; }
         public int speed { get; protected set; }
     }

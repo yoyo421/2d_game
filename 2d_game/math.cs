@@ -21,49 +21,49 @@ namespace _2d_game
             return returning;
         }
 
-        public int IsTouching(PictureBox p1, PictureBox p2, int fix_stuck, int speed)
+        public int IsTouching(int x1, int y1, int x2, int y2, int size_x1, int size_y1, int size_x2, int size_y2, int fix_stuck, int speed)
         {
-            if (p1.Location.X + p1.Width - speed < p2.Location.X)
+            if (x1 + size_x1 - speed < x2)
             {
                 return -1;
             }
-            if (p2.Location.X + p2.Width - speed < p1.Location.X)
+            if (x2 + size_x2 - speed < x1)
             {
                 return -1;
             }
-            if (p1.Location.Y + p1.Height - speed < p2.Location.Y)
+            if (y1 + size_y1 - speed < y2)
             {
                 return -1;
             }
-            if (p2.Location.Y + p2.Height - speed < p1.Location.Y)
+            if (y2 + size_y2 - speed < y1)
             {
                 return -1;
             }
             /////////////////////////////////////////////
             if (fix_stuck >= 0)
             {
-                return check_detect(p1, p2, speed);
+                return check_detect(x1, y1, x2, y2, size_x1, size_y1, size_x2, size_y2, speed);
             }
             return -1;
         }
-        private int check_detect(PictureBox p1, PictureBox p2, int speed)
+        private int check_detect(int x1, int y1, int x2, int y2, int size_x1, int size_y1, int size_x2, int size_y2, int speed)
         {
-            int i = 1;
-            if (p1.Location.X + p1.Width - speed > p2.Location.X)
+            int i = 210;
+            if (x1 + size_x1 - speed > x2)
             {
-                i *= 7;
+                i /= 7;
             }
-            if (p2.Location.X + p2.Width - speed > p1.Location.X)
+            if (x2 + size_x2 - speed > x1)
             {
-                i *= 5;
+                i /= 5;
             }
-            if (p1.Location.Y + p1.Height - speed > p2.Location.Y)
+            if (y1 + size_y1 - speed > y2)
             {
-                i *= 2;
+                i /= 2;
             }
-            if (p2.Location.Y + p2.Height - speed > p1.Location.Y)
+            if (y2 + size_y2 - speed > y1)
             {
-                i *= 3;
+                i /= 3;
             }
             return i;
         }
