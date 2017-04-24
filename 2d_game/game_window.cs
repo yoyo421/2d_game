@@ -18,8 +18,6 @@ namespace _2d_game
         public game_window()
         {
             Timer myTimer = new Timer();
-            Timer myTimer1 = new Timer();
-            Timer myTimer2 = new Timer();
             InitializeComponent();
             myTimer.Tick += new EventHandler(main);
             myTimer.Interval = 20;
@@ -102,11 +100,20 @@ namespace _2d_game
             if (true)
             {
                 player p1 = new_player.set_player(new_player);
+                Timer myTimer_attack = new Timer();
+
+                int save_dir = p1.direction_movment;
                 for (int i = 0; i < 5; i++)
                 {
-                    if (Keyboard.IsKeyDown(Key.Space))
+                    if (Keyboard.IsKeyDown(Key.P))
                     {
 
+                    }
+                    if (Keyboard.IsKeyDown(Key.Space))
+                    {
+                        this.Controls.Add(new_player.Sword);
+                        //place_items(true);
+                        //this.Controls.Remove(new_player.Sword);
                     }
                     int check = 0, Is_touth = is_touch(map_load.amount_map[map_now], p1.speed, p1);
                     if (Is_touth % 2 == 0)
@@ -132,15 +139,23 @@ namespace _2d_game
                     p1.direction_movment = 1;
                 }
                 new_player.set_xy(p1.X, p1.Y);
+                p1.direction_movment = save_dir;
+                place_items(true);
+                p1.direction_movment = 1;
             }
-            place_items();
         }
 
-        private void place_items()
+        private void place_items(bool sword)
         {
             new_player.PB.Left = math_staffs.VirtualSpace_to_Window_X(new_player.X, this.Width / 2, middle.X);
             new_player.PB.Top = math_staffs.VirtualSpace_to_Window_Y(new_player.Y, this.Height / 2, middle.Y);
             middle.fixing(new_player.X, new_player.Y);
+
+            if (sword == true)
+            {
+                new_player.Sword.Left = math_staffs.VirtualSpace_to_Window_X(new_player.attack(true), this.Width / 2, middle.X);
+                new_player.Sword.Top = math_staffs.VirtualSpace_to_Window_Y(new_player.attack(false), this.Height / 2, middle.Y);
+            }
 
             for (int i = 0; i < map_load.amount_map[map_now]; i++)
             {
