@@ -24,10 +24,17 @@ namespace _2d_game
             myTimer.Start();
             this.Controls.Add(new_player.PB);
             map_load = new map1(map_now);
+
+            pb.Maximum = 100;
+            pb.Minimum = 0;
+            pb.Size = new Size(500, 50);
+            this.Controls.Add(pb);
         }
         player new_player = new player();
         detect_location middle = new detect_location();
         map1 map_load;
+        ProgressBar pb = new ProgressBar();
+        bool sword_finish = false;
 
         private void up_and_down()
         {
@@ -105,16 +112,34 @@ namespace _2d_game
                 int save_dir = p1.direction_movment;
                 for (int i = 0; i < 5; i++)
                 {
+                    pb.Value = Convert.ToInt32(new_player.energy);
                     if (Keyboard.IsKeyDown(Key.P))
                     {
 
                     }
                     if (Keyboard.IsKeyDown(Key.Space))
                     {
-                        this.Controls.Add(new_player.Sword);
-                        //place_items(true);
-                        //this.Controls.Remove(new_player.Sword);
+                        if (sword_finish == true && new_player.energy >= 100)
+                            sword_finish = false;
+                        else if (new_player.energy >= 0 && sword_finish == false)
+                        {
+                            this.Controls.Add(new_player.Sword);
+                            new_player.energy_use(true);
+                        }
+                        else
+                        {
+                            this.Controls.Remove(new_player.Sword);
+                            sword_finish = true;
+                            new_player.energy_use(false);
+                        }
                     }
+                    else if (new_player.energy >= 0 && sword_finish == false)
+                    {
+                        this.Controls.Add(new_player.Sword);
+                        new_player.energy_use(true);
+                    }
+                    else if (sword_finish == true)
+                        new_player.energy_use(false);
                     int check = 0, Is_touth = is_touch(map_load.amount_map[map_now], p1.speed, p1);
                     if (Is_touth % 2 == 0)
                     {

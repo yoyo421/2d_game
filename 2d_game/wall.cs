@@ -168,6 +168,45 @@ namespace _2d_game
             tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
             return tample;
         }
+        public wall[] cons_smily_face_big_structure(int x, int y)
+        {
+            wall[] tample = new wall[4];
+            int i = 0;
+
+            tample[i] = new wall();
+            tample[i].X = x + 50;
+            tample[i].Y = y;
+            tample[i].size_X = 20;
+            tample[i].size_Y = 60;
+            tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
+            tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            i++;
+            tample[i] = new wall();
+            tample[i].X = x + 120;
+            tample[i].Y = y;
+            tample[i].size_X = 20;
+            tample[i].size_Y = 60;
+            tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
+            tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            i++;
+            tample[i] = new wall();
+            tample[i].X = x;
+            tample[i].Y = y + 100;
+            tample[i].size_X = 60;
+            tample[i].size_Y = 20;
+            tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
+            tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+            i++;
+            tample[i] = new wall();
+            tample[i].X = x + 100;
+            tample[i].Y = y + 100;
+            tample[i].size_X = 60;
+            tample[i].size_Y = 20;
+            tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
+            tample[i].PB.Location = new Point(tample[i].X, tample[i].Y);
+
+            return tample;
+        }
         //multi
         public wall[] multi_set_solid(wall[] obj_wall, bool solid)
         {

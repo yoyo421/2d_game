@@ -8,8 +8,12 @@ namespace _2d_game
 {
     class player : obj
     {
+        public int speed { get; private set; }
         public int direction_movment { get; set; }
         public System.Windows.Forms.PictureBox Sword { get; private set; }
+        public double drain { get; private set; }
+        public double energy { get; private set; }
+        public double restore { get; private set; }
 
         public player()
         {
@@ -25,6 +29,9 @@ namespace _2d_game
             this.speed = 5;
             this.is_alive = true;
             this.health = 100;
+            this.energy = 100;
+            this.drain = 0.2;
+            this.restore = 0.2;
 
             PB.Size = new System.Drawing.Size(this.size_X, this.size_Y);
             PB.Location = new System.Drawing.Point(this.X, this.Y);
@@ -72,6 +79,23 @@ namespace _2d_game
         public player set_player(player pl)
         {
             return pl;
+        }
+        public void energy_use(bool on)
+        {
+            if (this.energy < 0)
+                this.energy = 0;
+            if (this.energy > 100)
+                this.energy = 100;
+            if (on == true)
+            {
+                if (this.energy > 0)
+                    this.energy -= drain;
+            }
+            else
+            {
+                if (this.energy < 100)
+                    this.energy += restore;
+            }
         }
     }
 }

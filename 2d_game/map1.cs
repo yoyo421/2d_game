@@ -32,10 +32,12 @@ namespace _2d_game
             count++;
             map_constractor[count] = new wall().cons_five_cubes_X_big_structure(-150, -300);
             map_constractor[count] = new wall().solo_set_image(map_constractor[count],"https://i.ytimg.com/vi/h-cmvEFE7-E/hqdefault.jpg?custom=true&w=168&h=94&stc=true&jpg444=true&jpgq=90&sp=67&sigh=d3bmrUp0-Ea3CjdP0RDTAEbXfbU", 2);
+            count++;
+            map_constractor[count] = new wall().cons_smily_face_big_structure(-500, -500);
         }
         public map1(int map)
         {
-            amount_map[0] = 9;
+            amount_map[0] = 10;
             map_constractor = new wall[amount_map[map]][];
             map1_setup();
         }
