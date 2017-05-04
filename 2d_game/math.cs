@@ -23,19 +23,19 @@ namespace _2d_game
 
         public int IsTouching(int x1, int y1, int x2, int y2, int size_x1, int size_y1, int size_x2, int size_y2, int fix_stuck, int speed)
         {
-            if (x1 + size_x1 - speed < x2)
+            if (x1 + size_x1 - 1 < x2)
             {
                 return -1;
             }
-            if (x2 + size_x2 - speed < x1)
+            if (x2 + size_x2 - 1 < x1)
             {
                 return -1;
             }
-            if (y1 + size_y1 - speed < y2)
+            if (y1 + size_y1 - 1 < y2)
             {
                 return -1;
             }
-            if (y2 + size_y2 - speed < y1)
+            if (y2 + size_y2 - 1 < y1)
             {
                 return -1;
             }
@@ -49,19 +49,19 @@ namespace _2d_game
         private int check_detect(int x1, int y1, int x2, int y2, int size_x1, int size_y1, int size_x2, int size_y2, int speed)
         {
             int i = 210;
-            if (x1 + size_x1 - speed > x2)
+            if (x1 + size_x1 - speed - 1 > x2)
             {
                 i /= 7;
             }
-            if (x2 + size_x2 - speed > x1)
+            if (x2 + size_x2 - speed - 1 > x1)
             {
                 i /= 5;
             }
-            if (y1 + size_y1 - speed > y2)
+            if (y1 + size_y1 - speed - 1 > y2)
             {
                 i /= 2;
             }
-            if (y2 + size_y2 - speed > y1)
+            if (y2 + size_y2 - speed - 1 > y1)
             {
                 i /= 3;
             }

@@ -14,12 +14,14 @@ namespace _2d_game
             PB = new System.Windows.Forms.PictureBox();
 
             this.is_alive = true;
-            this.health = 100;
+            this.health = 10000;
             this.is_solid = true;
             this.is_invincible = true;
             this.is_backround = false;
+            this.is_attack = false;
+            this.dmg = 0;
 
-            this.PB.BackColor = Color.Black;
+            this.PB.BackColor = System.Drawing.Color.Black;
         }
         //cons
         public wall[] cons_big_cube(int x, int y)
@@ -294,6 +296,24 @@ namespace _2d_game
                 tample[i] = obj_wall[i];
                 if (i == place)
                     tample[i].PB.BackColor = clr;
+            }
+            return tample;
+        }
+
+        //convert other builds to wall
+        public wall[] convert_trap_to_wall(trap[] obj_trap)
+        {
+            wall[] tample = new wall[obj_trap.Length];
+            for (int i = 0; i < obj_trap.Length; i++)
+            {
+                tample[i].is_alive = obj_trap[i].is_alive;
+                tample[i].health = obj_trap[i].health;
+                tample[i].is_solid = obj_trap[i].is_solid;
+                tample[i].is_invincible = obj_trap[i].is_invincible;
+                tample[i].is_backround = obj_trap[i].is_backround;
+                tample[i].is_attack = obj_trap[i].is_attack;
+                tample[i].dmg = obj_trap[i].dmg;
+                tample[i].PB = obj_trap[i].PB;
             }
             return tample;
         }

@@ -11,9 +11,6 @@ namespace _2d_game
         public int speed { get; private set; }
         public int direction_movment { get; set; }
         public System.Windows.Forms.PictureBox Sword { get; private set; }
-        public double drain { get; private set; }
-        public double energy { get; private set; }
-        public double restore { get; private set; }
 
         public player()
         {
@@ -26,41 +23,16 @@ namespace _2d_game
             this.size_Y = 20;
 
             this.direction_movment = 1;
-            this.speed = 5;
+            this.speed = 10;
             this.is_alive = true;
-            this.health = 100;
-            this.energy = 100;
-            this.drain = 0.2;
-            this.restore = 0.2;
+            this.health = 10000;
+            this.is_solid = true;
 
             PB.Size = new System.Drawing.Size(this.size_X, this.size_Y);
             PB.Location = new System.Drawing.Point(this.X, this.Y);
             PB.BackColor = System.Drawing.Color.Red;
             Sword.BackColor = System.Drawing.Color.Cyan;
             Sword.Size = new System.Drawing.Size(size_X, size_Y);
-        }
-        public int attack(bool is_x)
-        {
-            int x = this.X, y = this.Y;
-            if (this.direction_movment % 2 == 0)
-            {
-                y -= this.size_Y;
-            }
-            if (this.direction_movment % 3 == 0)
-            {
-                y += this.size_Y;
-            }
-            if (this.direction_movment % 5 == 0)
-            {
-                x += this.size_X;
-            }
-            if (this.direction_movment % 7 == 0)
-            {
-                x -= this.size_X;
-            }
-            if (is_x == true)
-                return x;
-            return y;
         }
 
         public void change_X(int speed)
@@ -79,23 +51,6 @@ namespace _2d_game
         public player set_player(player pl)
         {
             return pl;
-        }
-        public void energy_use(bool on)
-        {
-            if (this.energy < 0)
-                this.energy = 0;
-            if (this.energy > 100)
-                this.energy = 100;
-            if (on == true)
-            {
-                if (this.energy > 0)
-                    this.energy -= drain;
-            }
-            else
-            {
-                if (this.energy < 100)
-                    this.energy += restore;
-            }
         }
     }
 }
