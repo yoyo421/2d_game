@@ -1,0 +1,25 @@
+wall().cons_custom_wall( -100, -50, 90, 30)
+!
+wall().cons_custom_wall( 100, -50, 90, 30)
+wall().multi_set_solid( map_constractor[count], false)
+wall().multi_set_backround( map_constractor[count], true)
+!
+wall().cons_plus_big_structure( -150, 300)
+!
+wall().cons_cube_hollow_X_entrence_big_structure( 0, -300)
+!
+wall().cons_plus_big_structure( 500, 500)
+!
+wall().cons_cube_hollow_X_entrence_big_structure( 550, 550)
+!
+wall().cons_five_cubes_X_big_structure( -300, 100)
+!
+wall().cons_five_cubes_X_big_structure( -150, -300)
+wall().solo_set_image(map_constractor[count],"https://i.ytimg.com/vi/h-cmvEFE7-E/hqdefault.jpg?custom=true&w=168&h=94&stc=true&jpg444=true&jpgq=90&sp=67&sigh=d3bmrUp0-Ea3CjdP0RDTAEbXfbU",2)
+!
+wall().cons_smily_face_big_structure( -500, -500)
+!
+wall().convert_trap_to_wall(new trap().cons_big_cube( 300, 0))
+::wall().cons_custom_wall(743,50,3000,6000)
+::wall().multi_set_solid( map_constractor[count], false) 
+::wall().multi_set_image(map_constractor[count],"IMG_20170509_192143.jpg")

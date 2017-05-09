@@ -29,9 +29,6 @@ namespace _2d_game
         player new_player = new player();
         detect_location middle = new detect_location();
         map1 map_load;
-
-        bool debag = true;
-
         private void up_and_down()
         {
             if (Keyboard.IsKeyDown(Key.W))
@@ -104,13 +101,6 @@ namespace _2d_game
                 movement();
                 place_items();
             }
-            if (debag == true)
-                debaging();
-        }
-
-        private void debaging()
-        {
-            this.Text = new_player.X.ToString() + " " + new_player.Y.ToString() + " " + new_player.health.ToString();
         }
 
         private void movement()
@@ -121,6 +111,8 @@ namespace _2d_game
             int save_dir = p1.direction_movment;
             for (int i = 0; i < new_player.speed; i++)
             {
+                if (true)
+                    this.Text = new_player.X.ToString() + " " + new_player.Y.ToString() + " " + new_player.health.ToString();
                 if (Keyboard.IsKeyDown(Key.P))
                 {
 
@@ -128,7 +120,7 @@ namespace _2d_game
                 if (Keyboard.IsKeyDown(Key.Space))
                 {
                 }
-                int check = 0, Is_touth = is_touch(map_load.amount_map[map_now], p1.speed, p1, p1.is_solid);
+                int check = 0, Is_touth = is_touch(map_load.amount_map[map_now], p1.speed, p1);
                 if (Is_touth % 2 == 0)
                 {
                     p1.change_Y(-1);
@@ -154,6 +146,7 @@ namespace _2d_game
             new_player.set_xy(p1.X, p1.Y);
             p1.direction_movment = save_dir;
             p1.direction_movment = 1;
+            new_player.set_hp(p1.health);
         }
 
         private void place_items()
@@ -172,13 +165,15 @@ namespace _2d_game
             }
         }
 
-        private int is_touch(int amount, int speed, player p1, bool solid)
+        private int is_touch(int amount, int speed, player p1)
         {
+            int i = 0, ii = 0;
+            bool solid = false;
             int returned = 1;
-            if (solid == true)
+            if (true)
             {
-                for (int i = 0; i < amount; i++)
-                    for (int ii = 0; ii < map_load.map_constractor[i].Length; ii++)
+                for (i = 0; i < amount; i++)
+                    for (ii = 0; ii < map_load.map_constractor[i].Length; ii++)
                         if (math_staffs.IsTouching(
                             p1.X,
                             p1.Y,
@@ -188,8 +183,8 @@ namespace _2d_game
                             p1.size_Y,
                             map_load.map_constractor[i][ii].size_X,
                             map_load.map_constractor[i][ii].size_Y,
-                            p1.direction_movment, speed) != -1 &&
-                            map_load.map_constractor[i][ii].is_solid == true)
+                            p1.direction_movment, speed) != -1)
+                        {
                             returned *= (math_staffs.IsTouching(
                             p1.X,
                             p1.Y,
@@ -200,8 +195,17 @@ namespace _2d_game
                             map_load.map_constractor[i][ii].size_X,
                             map_load.map_constractor[i][ii].size_Y,
                             p1.direction_movment, speed));
+                            if (map_load.map_constractor[i][ii].is_attack == true)
+                            {
+                                p1.change_hp(map_load.map_constractor[i][ii].dmg / new_player.speed);
+                            }
+                            if (map_load.map_constractor[i][ii].is_solid == true)
+                            {
+                                solid = true;
+                            }
+                        }
             }
-            if (returned == 1)
+            if (returned == 1 || solid == false)
                 returned = -1;
             return returned;
         }

@@ -43,6 +43,14 @@ namespace _2d_game
         {
             this.Y += speed;
         }
+        public void change_hp(int hp)
+        {
+            this.health -= hp;
+        }
+        public void set_hp(int hp)
+        {
+            this.health = hp;
+        }
         public void set_xy(int x, int y)
         {
             this.Y = y;

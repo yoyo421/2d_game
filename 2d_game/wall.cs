@@ -24,18 +24,6 @@ namespace _2d_game
             this.PB.BackColor = System.Drawing.Color.Black;
         }
         //cons
-        public wall[] cons_big_cube(int x, int y)
-        {
-            wall[] tample = new wall[1];
-            tample[0] = new wall();
-            tample[0].X = x;
-            tample[0].Y = y;
-            tample[0].size_X = 100;
-            tample[0].size_Y = 100;
-            tample[0].PB.Size = new Size(tample[0].size_X, tample[0].size_Y);
-            tample[0].PB.Location = new Point(tample[0].X, tample[0].Y);
-            return tample;
-        }
         public wall[] cons_custom_wall(int x, int y, int size_x, int size_y)
         {
             wall[] tample = new wall[1];
@@ -306,6 +294,11 @@ namespace _2d_game
             wall[] tample = new wall[obj_trap.Length];
             for (int i = 0; i < obj_trap.Length; i++)
             {
+                tample[i] = new wall();
+                tample[i].X = obj_trap[i].X;
+                tample[i].Y = obj_trap[i].Y;
+                tample[i].size_X = obj_trap[i].size_X;
+                tample[i].size_Y = obj_trap[i].size_Y;
                 tample[i].is_alive = obj_trap[i].is_alive;
                 tample[i].health = obj_trap[i].health;
                 tample[i].is_solid = obj_trap[i].is_solid;

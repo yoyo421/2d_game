@@ -20,18 +20,18 @@ namespace _2d_game
             this.is_invincible = true;
             this.is_backround = true;
             this.is_attack = true;
-            this.dmg = 100;
+            this.dmg = 10;
 
             this.PB.BackColor = System.Drawing.Color.Brown;
         }
-        public trap[] cons_big_cube(int x, int y)
+        public trap[] cons_custom_wall(int x, int y, int size_x, int size_y)
         {
             trap[] tample = new trap[1];
             tample[0] = new trap();
             tample[0].X = x;
             tample[0].Y = y;
-            tample[0].size_X = 100;
-            tample[0].size_Y = 100;
+            tample[0].size_X = size_x;
+            tample[0].size_Y = size_y;
             tample[0].PB.Size = new Size(tample[0].size_X, tample[0].size_Y);
             tample[0].PB.Location = new Point(tample[0].X, tample[0].Y);
             return tample;
