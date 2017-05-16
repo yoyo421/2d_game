@@ -16,7 +16,7 @@ namespace _2d_game
             string line;
 
             // Read the file and display it line by line.
-            using(StreamReader file = new System.IO.StreamReader(@"C:\Users\user10\Desktop\new  1.txt"))
+            using (StreamReader file = new System.IO.StreamReader(@"C:\Users\user10\Desktop\2d_game\2d_game\data\new  1.txt"))
             {
                 while ((line = file.ReadLine()) != null && skip == false)
                 {
@@ -102,11 +102,11 @@ namespace _2d_game
                             }
                         }
                     }
-                }
                     if (line == "!" && skip == false)
                         count++;
                     if (line == "Ω")
                         skip = true;
+                }
             }
 
             //map_constractor[count] = new wall().cons_custom_wall(-100,-50,90,30);
@@ -141,6 +141,13 @@ namespace _2d_game
             amount_map[0] = 9;
             map_constractor = new wall[amount_map[map]][];
             map1_setup();
+            map_minimap = new wall[amount_map[map]][];
+            for (int i = 0; i < amount_map[map]; i++)
+            {
+                //map_minimap[i] = wall.copy(map_constractor[i]);
+                map_minimap[i] = new wall().size_change(map_minimap[i], 50);
+                map_minimap[i] = new wall().multi_set_solid(map_minimap[i], true);
+            }
         }
 
         private bool Parse(string x)

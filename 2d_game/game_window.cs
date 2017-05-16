@@ -20,6 +20,8 @@ namespace _2d_game
             Timer myTimer = new Timer();
             InitializeComponent();
             myTimer.Tick += new EventHandler(main);
+            myTimer.Tick += new EventHandler(place_map2);
+            myTimer.Tick += new EventHandler(place_map);
             myTimer.Interval = 20;
             myTimer.Start();
             this.Controls.Add(new_player.PB);
@@ -87,6 +89,7 @@ namespace _2d_game
                 for (int ii = 0; ii < map_load.map_constractor[i].Length; ii++)
                 {
                     this.Controls.Add(map_load.map_constractor[i][ii].PB);
+                    this.Controls.Add(map_load.map_minimap[i][ii].PB);
                     if (map_load.map_constractor[i][ii].is_backround == false)
                         map_load.map_constractor[i][ii].PB.BringToFront();
                     if (map_load.map_constractor[i][ii].is_backround == true)
@@ -159,8 +162,30 @@ namespace _2d_game
             {
                 for (int ii = 0; ii < map_load.map_constractor[i].Length; ii++)
                 {
+                }
+            }
+        }
+
+        private void place_map(object sender, EventArgs e)
+        {
+            for (int i = 0; i < map_load.amount_map[map_now]; i++)
+            {
+                for (int ii = 0; ii < map_load.map_constractor[i].Length; ii++)
+                {
                     map_load.map_constractor[i][ii].PB.Left = math_staffs.VirtualSpace_to_Window_X(map_load.map_constractor[i][ii].X, this.Width / 2, middle.X);
                     map_load.map_constractor[i][ii].PB.Top = math_staffs.VirtualSpace_to_Window_Y(map_load.map_constractor[i][ii].Y, this.Height / 2, middle.Y);
+                }
+            }
+        }
+
+        private void place_map2(object sender, EventArgs e)
+        {
+            for (int i = 0; i < map_load.amount_map[map_now]; i++)
+            {
+                for (int ii = 0; ii < map_load.map_minimap[i].Length; ii++)
+                {
+                    map_load.map_minimap[i][ii].PB.Left = math_staffs.VirtualSpace_to_Window_X(map_load.map_minimap[i][ii].X, this.Width / 2, middle.X + 200);
+                    map_load.map_minimap[i][ii].PB.Top = math_staffs.VirtualSpace_to_Window_Y(map_load.map_minimap[i][ii].Y, this.Height / 2, middle.Y);
                 }
             }
         }

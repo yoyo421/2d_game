@@ -9,6 +9,7 @@ namespace _2d_game
     class map
     {
         public wall[][] map_constractor { get; protected set; }
+        public wall[][] map_minimap { get; protected set; }
         public int[] amount_map { get; private set; }
         public bool is_finish { get; private set; }
 

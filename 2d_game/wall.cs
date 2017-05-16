@@ -310,5 +310,35 @@ namespace _2d_game
             }
             return tample;
         }
+        //resize tool
+        public wall[] size_change(wall[] obj_wall, int purcent)
+        {
+            //wall[] tample = new wall[obj_wall.Length];
+            for (int i = 0; i < obj_wall.Length; i++)
+            {
+                tample[i].size_X = (tample[i].size_X * purcent) / 100;
+                tample[i].size_Y = (tample[i].size_Y * purcent) / 100;
+                tample[i].PB.Size = new Size(tample[i].size_X, tample[i].size_Y);
+            }
+            return tample;
+        }
+
+        public static wall copy(wall tocp)
+        {
+            wall send = new wall();
+            send.X = tocp.X;
+            send.Y = tocp.Y;
+            send.size_X = tocp.size_X;
+            send.size_Y = tocp.size_Y;
+            send.is_alive = tocp.is_alive;
+            send.health = tocp.health;
+            send.is_solid = tocp.is_solid;
+            send.is_invincible = tocp.is_invincible;
+            send.is_backround = tocp.is_backround;
+            send.is_attack = tocp.is_attack;
+            send.dmg = tocp.dmg;
+            send.PB = tocp.PB;
+            return send;
+        }
     }
 }
